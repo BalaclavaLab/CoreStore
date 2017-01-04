@@ -1068,7 +1068,7 @@ extension TestEntity1: ImportableUniqueObject {
         }
     }
     
-    static func shouldUpdate(from source: ImportSource, in transaction: BaseDataTransaction) -> Bool {
+    func shouldUpdate(from source: ImportSource, in transaction: BaseDataTransaction) -> Bool {
         
         return source["skip_update"] == nil
     }
