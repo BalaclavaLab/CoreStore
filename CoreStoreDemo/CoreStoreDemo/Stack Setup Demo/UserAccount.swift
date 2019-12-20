@@ -17,4 +17,5 @@ class UserAccount: NSManagedObject {
     @NSManaged var accountType: String?
     @NSManaged var name: String?
     @NSManaged var friends: Int32
+    @NSManaged var settings: Settings?
 }

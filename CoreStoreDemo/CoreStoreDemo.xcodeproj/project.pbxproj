@@ -49,6 +49,7 @@
 		B5EE258C1B36E40D0000406B /* MigrationsDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EE258B1B36E40D0000406B /* MigrationsDemoViewController.swift */; };
 		B5EE259B1B3EA4890000406B /* OrganismV3.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EE259A1B3EA4890000406B /* OrganismV3.swift */; };
 		B5EE259E1B3EC1B20000406B /* OrganismProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5EE259D1B3EC1B20000406B /* OrganismProtocol.swift */; };
+		B84D44FF23ACC41600D8FEDB /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84D44FE23ACC41600D8FEDB /* Settings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -112,6 +113,7 @@
 		B5EE258B1B36E40D0000406B /* MigrationsDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MigrationsDemoViewController.swift; sourceTree = "<group>"; };
 		B5EE259A1B3EA4890000406B /* OrganismV3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganismV3.swift; sourceTree = "<group>"; };
 		B5EE259D1B3EC1B20000406B /* OrganismProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganismProtocol.swift; sourceTree = "<group>"; };
+		B84D44FE23ACC41600D8FEDB /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,6 +228,7 @@
 			children = (
 				B56964DB1B231BCB0075EE4A /* FemaleAccount.swift */,
 				B56964D91B231BCA0075EE4A /* MaleAccount.swift */,
+				B84D44FE23ACC41600D8FEDB /* Settings.swift */,
 				B566E3311B11DF3200F4F0C6 /* UserAccount.swift */,
 				B566E3291B117B1F00F4F0C6 /* StackSetupDemoViewController.swift */,
 			);
@@ -345,6 +348,7 @@
 				B5C37EE52357FEBE0035A20D /* PaletteCollectionSectionHeaderView.swift in Sources */,
 				B56965291B3582D30075EE4A /* MigrationDemo.xcdatamodeld in Sources */,
 				B5E599321B5240F50084BD5F /* OrganismTableViewCell.swift in Sources */,
+				B84D44FF23ACC41600D8FEDB /* Settings.swift in Sources */,
 				B5EE25851B36E23C0000406B /* OrganismV1.swift in Sources */,
 				B52977DD1B120F3B003D50A5 /* TransactionsDemoViewController.swift in Sources */,
 				B52977E41B121635003D50A5 /* Place.swift in Sources */,
