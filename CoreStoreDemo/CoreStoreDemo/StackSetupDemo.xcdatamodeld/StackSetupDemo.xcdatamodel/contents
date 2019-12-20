@@ -1,23 +1,33 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14D136" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="19C57" minimumToolsVersion="Xcode 4.3" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
     <entity name="FemaleAccount" representedClassName="CoreStoreDemo.FemaleAccount" parentEntity="UserAccount" syncable="YES"/>
     <entity name="MaleAccount" representedClassName="CoreStoreDemo.MaleAccount" parentEntity="UserAccount" syncable="YES"/>
+    <entity name="Settings" representedClassName="CoreStoreDemo.Settings" syncable="YES">
+        <attribute name="attribute1" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="attribute2" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="attribute3" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="userAccount" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserAccount" inverseName="settings" inverseEntity="UserAccount" syncable="YES"/>
+    </entity>
     <entity name="UserAccount" representedClassName="CoreStoreDemo.UserAccount" isAbstract="YES" syncable="YES">
         <attribute name="accountType" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="friends" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="friends" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="settings" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Settings" inverseName="userAccount" inverseEntity="Settings" syncable="YES"/>
     </entity>
     <configuration name="FemaleAccounts">
         <memberEntity name="FemaleAccount"/>
         <memberEntity name="UserAccount"/>
+        <memberEntity name="Settings"/>
     </configuration>
     <configuration name="MaleAccounts">
         <memberEntity name="MaleAccount"/>
         <memberEntity name="UserAccount"/>
+        <memberEntity name="Settings"/>
     </configuration>
     <elements>
-        <element name="UserAccount" positionX="-63" positionY="-18" width="128" height="90"/>
-        <element name="MaleAccount" positionX="-54" positionY="18" width="128" height="45"/>
         <element name="FemaleAccount" positionX="-36" positionY="27" width="128" height="45"/>
+        <element name="MaleAccount" positionX="-54" positionY="18" width="128" height="45"/>
+        <element name="UserAccount" positionX="-63" positionY="-18" width="128" height="103"/>
+        <element name="Settings" positionX="-45" positionY="9" width="128" height="103"/>
     </elements>
 </model>
