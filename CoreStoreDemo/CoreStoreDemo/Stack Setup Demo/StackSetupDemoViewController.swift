@@ -33,22 +33,35 @@ private struct Static {
             )
         )
         
-        _ = try? dataStack.perform(
-            synchronous: { (transaction) in
-                
-                try transaction.deleteAll(From<UserAccount>())
-                
-                let account1 = transaction.create(Into<MaleAccount>(maleConfiguration))
-                account1.accountType = "Facebook"
-                account1.name = "John Smith HCD"
-                account1.friends = 42
-                
-                let account2 = transaction.create(Into<FemaleAccount>(femaleConfiguration))
-                account2.accountType = "Facebook"
-                account2.name = "Jane Doe HCD"
-                account2.friends = 314
-            }
-        )
+        #warning("Run it once and comment it out to debug `relationshipKeyPathsForPrefetching`")
+//        _ = try? dataStack.perform(
+//            synchronous: { (transaction) in
+//
+//                try transaction.deleteAll(From<UserAccount>())
+//
+//                let settings1 = transaction.create(Into<Settings>(maleConfiguration))
+//                settings1.attribute1 = NSNumber(value: 32)
+//                settings1.attribute2 = "String"
+//                settings1.attribute3 = NSNumber(value: true)
+//
+//                let account1 = transaction.create(Into<MaleAccount>(maleConfiguration))
+//                account1.accountType = "Facebook"
+//                account1.name = "John Smith HCD"
+//                account1.friends = 42
+//                account1.settings = settings1
+//
+//                let settings2 = transaction.create(Into<Settings>(femaleConfiguration))
+//                settings2.attribute1 = NSNumber(value: 23)
+//                settings2.attribute2 = "strinG"
+//                settings2.attribute3 = NSNumber(value: false)
+//
+//                let account2 = transaction.create(Into<FemaleAccount>(femaleConfiguration))
+//                account2.accountType = "Facebook"
+//                account2.name = "Jane Doe HCD"
+//                account2.friends = 314
+//                account2.settings = settings2
+//            }
+//        )
         
         return dataStack
     }()
@@ -71,22 +84,35 @@ private struct Static {
             )
         )
         
-        _ = try? dataStack.perform(
-            synchronous: { (transaction) in
-                
-                try transaction.deleteAll(From<UserAccount>())
-                
-                let account1 = transaction.create(Into<MaleAccount>(maleConfiguration))
-                account1.accountType = "Twitter"
-                account1.name = "#johnsmith_hcd"
-                account1.friends = 7
-                
-                let account2 = transaction.create(Into<FemaleAccount>(femaleConfiguration))
-                account2.accountType = "Twitter"
-                account2.name = "#janedoe_hcd"
-                account2.friends = 100
-            }
-        )
+        #warning("Run it once and comment it out to debug `relationshipKeyPathsForPrefetching`")
+//        _ = try? dataStack.perform(
+//            synchronous: { (transaction) in
+//
+//                try transaction.deleteAll(From<UserAccount>())
+//
+//                let settings1 = transaction.create(Into<Settings>(maleConfiguration))
+//                settings1.attribute1 = NSNumber(value: 32)
+//                settings1.attribute2 = "String"
+//                settings1.attribute3 = NSNumber(value: true)
+//
+//                let account1 = transaction.create(Into<MaleAccount>(maleConfiguration))
+//                account1.accountType = "Twitter"
+//                account1.name = "#johnsmith_hcd"
+//                account1.friends = 7
+//                account1.settings = settings1
+//
+//                let settings2 = transaction.create(Into<Settings>(femaleConfiguration))
+//                settings2.attribute1 = NSNumber(value: 23)
+//                settings2.attribute2 = "strinG"
+//                settings2.attribute3 = NSNumber(value: false)
+//
+//                let account2 = transaction.create(Into<FemaleAccount>(femaleConfiguration))
+//                account2.accountType = "Twitter"
+//                account2.name = "#janedoe_hcd"
+//                account2.friends = 100
+//                account2.settings = settings2
+//            }
+//        )
         return dataStack
     }()
 }
@@ -99,8 +125,14 @@ private struct Static {
 class StackSetupDemoViewController: UITableViewController {
     
     let accounts = [
-        try! Static.facebookStack.fetchAll(From<UserAccount>()),
-        try! Static.twitterStack.fetchAll(From<UserAccount>())
+        try! Static.facebookStack.fetchAll(From<UserAccount>().tweak({ (fetchRequest) in
+            
+            fetchRequest.relationshipKeyPathsForPrefetching = [#keyPath(UserAccount.settings)]
+        })),
+        try! Static.twitterStack.fetchAll(From<UserAccount>().tweak({ (fetchRequest) in
+            
+            fetchRequest.relationshipKeyPathsForPrefetching = [#keyPath(UserAccount.settings)]
+        }))
     ]
     
     
