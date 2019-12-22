@@ -116,6 +116,7 @@ public final class DataStack: Equatable {
         self.schemaHistory = schemaHistory
         
         self.rootSavingContext.parentStack = self
+        self.mainContext.parentStack = self
         
         self.mainContext.isDataStackContext = true
     }
